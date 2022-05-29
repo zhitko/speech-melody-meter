@@ -33,30 +33,35 @@
         <source>Click to start recording</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="Pages/Home/HomeForm.ui.qml" line="77"/>
+        <source>Click to stop recording</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Pitch</name>
     <message>
-        <location filename="Pages/Pitch/Pitch.qml" line="139"/>
+        <location filename="Pages/Pitch/Pitch.qml" line="108"/>
         <source>Center C(n): %1; 	 C(F0): &lt;span style=&apos;%3&apos;&gt;%2&lt;/span&gt; Hz</source>
         <oldsource>Center C(n): %1; 	 Center C(F0): &lt;span style=&apos;%3&apos;&gt;%2&lt;/span&gt; Hz</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Pages/Pitch/Pitch.qml" line="141"/>
+        <location filename="Pages/Pitch/Pitch.qml" line="110"/>
         <source>Band B(n): %1; 	 B(F0): &lt;span style=&apos;%3&apos;&gt;%2&lt;/span&gt; Hz</source>
         <oldsource>Band B(n): %1; 	 Band B(F0): &lt;span style=&apos;%3&apos;&gt;%2&lt;/span&gt; Hz</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Pages/Pitch/Pitch.qml" line="143"/>
+        <location filename="Pages/Pitch/Pitch.qml" line="112"/>
         <source>Asymmetry A(n): %1; 	 A(F0): &lt;span style=&apos;%3&apos;&gt;%2&lt;/span&gt; Hz</source>
         <oldsource>Assymetry A(n): %1; 	 Assymetry A(F0): &lt;span style=&apos;%3&apos;&gt;%2&lt;/span&gt; Hz</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Pages/Pitch/Pitch.qml" line="175"/>
-        <source>Components Number - Nc: %1</source>
+        <location filename="Pages/Pitch/Pitch.qml" line="144"/>
+        <source>Components Number - Nc: &lt;span style=&apos;font-size: 18pt;&apos;&gt;%1&lt;/span&gt;</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -98,9 +103,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Pages/Pitch/PitchForm.ui.qml" line="217"/>
-        <location filename="Pages/Pitch/PitchForm.ui.qml" line="243"/>
-        <location filename="Pages/Pitch/PitchForm.ui.qml" line="269"/>
+        <location filename="Pages/Pitch/PitchForm.ui.qml" line="210"/>
+        <location filename="Pages/Pitch/PitchForm.ui.qml" line="236"/>
+        <location filename="Pages/Pitch/PitchForm.ui.qml" line="262"/>
+        <location filename="Pages/Pitch/PitchForm.ui.qml" line="288"/>
         <source>0</source>
         <translation type="unfinished"></translation>
     </message>

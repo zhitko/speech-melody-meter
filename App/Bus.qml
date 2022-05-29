@@ -70,9 +70,19 @@ Item {
       Actions
       ---------------------------------------------------------*/
 
+    function setRecordPath(path) {
+        root.templatePath = root.recordPath
+        root.recordPath = path
+    }
+
+    function setTemplatePath(path) {
+        root.templatePath = path
+    }
+
     function startRecord() {
         console.log("Action.startRecord")
-        root.recordPath = backend.startStopRecordWaveFile()
+
+        setRecordPath(backend.startStopRecordWaveFile())
 
         root.canRecordButton = false
         root.canPlayButton = false
@@ -105,9 +115,9 @@ Item {
         console.log("Action.openFileDialog: newPath = ", newPath)
         let isChanged = root.recordPath !== newPath
         console.log("Action.openFileDialog: isChanged = ", isChanged)
-        root.recordPath = newPath
 
         if (isChanged) {
+            setRecordPath(newPath)
             goPith(true)
         }
     }

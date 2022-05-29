@@ -10,11 +10,9 @@ PitchForm {
     objectName: Enum.pagePitch
 
     property var waveSegments: []
-    property var recordOctavesData: []
     property var recordFullOctavesData: []
     property var octavesCategories: []
     property var optimazedCategories: []
-    property int recordOctavesMax: 0
     property int recordFullOctavesMax: 0
 
     property bool calculatedWaveSeries: false
@@ -55,17 +53,37 @@ PitchForm {
 
     function showOctaves() {
         root.octavesSeries.clear()
-        if (root.showFullPitchSeries) {
-            showFullRecordOctaves()
-        } else {
-            showRecordOctaves()
+        showRecordOctaves()
+        showTemplateOctaves()
+    }
+
+    function showTemplateOctaves() {
+        console.log("PitchForm.showTemplateOctaves")
+
+        let octavesData = []
+
+        let data = Bus.getTemplateOctavesData()
+        console.log("getTemplateOctavesData", data)
+        if (data.length === 0) return;
+        let max = 0
+        for (let i=0; i< data.length - 1; i++) {
+            console.log("value: ", data[i])
+            octavesData.push(data[i])
+            if (data[i] > max) max = data[i]
         }
+        console.log("max", max)
+
+        if (octavesCategorisY.max < max) {
+            octavesCategorisY.max = max
+        }
+
+        octavesSeries.append("Template", octavesData)
     }
 
     function showRecordOctaves() {
-        console.log("PitchForm.showOctaves")
+        console.log("PitchForm.showRecordOctaves")
 
-        recordOctavesData = []
+        let octavesData = []
 
         let data = Bus.getOctavesData()
         console.log("getOctavesData", data)
@@ -73,52 +91,25 @@ PitchForm {
         let max = 0
         for (let i=0; i< data.length - 1; i++) {
             console.log("value: ", data[i])
-            recordOctavesData.push(data[i])
+            octavesData.push(data[i])
             if (data[i] > max) max = data[i]
         }
         console.log("max", max)
 
-        recordOctavesMax = data[data.length - 1]
+        let octavesMax = data[data.length - 1]
 
         octavesCategorisX.categories = octavesCategories
         octavesMarksCategorisX.categories = octavesCategories
         octavesCategorisY.max = max
 
-        octavesSeries.append("Record", recordOctavesData)
-    }
-
-    function showFullRecordOctaves() {
-        console.log("PitchForm.showFullOctaves")
-
-        recordFullOctavesData = []
-
-        let data = Bus.getFullOctavesData()
-        console.log("getFullOctavesData", data)
-        if (data.length === 0) return;
-
-        let max = 0
-        for (let i=0; i< data.length - 1; i++) {
-            console.log("value: ", data[i])
-            recordFullOctavesData.push(data[i])
-            if (data[i] > max) max = data[i]
-        }
-        console.log("max", max)
-
-        recordFullOctavesMax = data[data.length - 1]
-
-        octavesCategorisX.categories = octavesCategories
-        octavesMarksCategorisX.categories = octavesCategories
-        octavesCategorisY.max = max
-
-        octavesMax.text = recordFullOctavesMax
-        octavesSeries.append("Record", recordFullOctavesData)
+        octavesSeries.append("Record", octavesData)
     }
 
     function showOctavesMarks() {
         console.log("PitchForm.showOctavesMarks")
         root.octavesMarksSeries.clear()
 
-        let recordData = Bus.getPitchOcavesMetrics(root.showFullPitchSeries)
+        let recordData = Bus.getPitchOcavesMetrics(false)
         console.log("PitchForm.showOctavesMarks recordData", recordData)
         let recordSeries = []
         for (let i in octavesCategorisX.categories) {
@@ -132,10 +123,10 @@ PitchForm {
     }
 
     function showOctavesMetrics() {
-        console.log("PitchForm.showOctavesMetrics", root.showFullPitchSeries)
+        console.log("PitchForm.showOctavesMetrics")
 
         let style = "font-size: 18pt;"
-        let recordData = Bus.getPitchOcavesMetrics(root.showFullPitchSeries)
+        let recordData = Bus.getPitchOcavesMetrics(false)
         root.rValue.text = qsTr("Center C(n): %1; \t C(F0): <span style='%3'>%2</span> Hz")
             .arg(recordData[0]).arg(recordData[3]).arg(style)
         root.dValue.text = qsTr("Band B(n): %1; \t B(F0): <span style='%3'>%2</span> Hz")
@@ -212,6 +203,7 @@ PitchForm {
         Bus.setSettings("HistogramF0max", settingsF0MaxValue.text)
         root.settingsNeedApply = false
         loadSettings()
+        Bus.setTemplatePath("")
         initializeData()
     }
 }
