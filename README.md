@@ -17,9 +17,10 @@ You need to build Inton Core library first.
 git clone https://github.com/zhitko/speech-melody-meter.git
 
 cd speech-melody-meter
-git clone git@github.com:zhitko/inton-core.git
+git clone https://github.com/zhitko/inton-core.git
 
-cmake --build . --target all```
+cmake --build . --target all
+```
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
