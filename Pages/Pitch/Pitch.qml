@@ -30,7 +30,7 @@ PitchForm {
         Bus.showPlayButton = Bus.recordPath !== ""
         Bus.showSaveResultsButton = Bus.recordPath !== ""
         Bus.showRecordButton = true
-        Bus.showOpenButton = true
+        Bus.showOpenButton = true && Bus.canOpenButton
 
         loadSettings()
 
@@ -64,7 +64,6 @@ PitchForm {
 
         let data = Bus.getTemplateOctavesData()
         console.log("getTemplateOctavesData", data)
-        if (data.length === 0) return;
         let max = 0
         for (let i=0; i< data.length - 1; i++) {
             console.log("value: ", data[i])

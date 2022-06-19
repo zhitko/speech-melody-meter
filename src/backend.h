@@ -75,6 +75,9 @@ public:
     // Segments API
     Q_INVOKABLE QVariantList getSegmentsByIntensity(QString path);
 
+    // System API
+    Q_INVOKABLE void moveTemplateToRecord();
+    Q_INVOKABLE void moveRecordToTemplate();
 public:
     QString getPath();
     void setPath(const QString& path);

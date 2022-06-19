@@ -977,3 +977,21 @@ void Backend::initializeTemplateCore(const QString& path)
 
     this->setPath(path);
 }
+
+void Backend::moveTemplateToRecord()
+{
+    if (this->core == nullptr) return;
+    qDebug() << "moveTemplateToRecord";
+    auto storage = this->core->popTemplate();
+    qDebug() << "storage: " << (storage == nullptr);
+    this->core->setRecord(storage);
+}
+
+void Backend::moveRecordToTemplate()
+{
+    if (this->core == nullptr) return;
+    qDebug() << "moveRecordToTemplate";
+    auto storage = this->core->popRecord();
+    qDebug() << "storage: " << (storage == nullptr);
+    this->core->setTemplate(storage);
+}

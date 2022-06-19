@@ -42,25 +42,25 @@
 <context>
     <name>Pitch</name>
     <message>
-        <location filename="Pages/Pitch/Pitch.qml" line="108"/>
+        <location filename="Pages/Pitch/Pitch.qml" line="129"/>
         <source>Center C(n): %1; 	 C(F0): &lt;span style=&apos;%3&apos;&gt;%2&lt;/span&gt; Hz</source>
         <oldsource>Center C(n): %1; 	 Center C(F0): &lt;span style=&apos;%3&apos;&gt;%2&lt;/span&gt; Hz</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Pages/Pitch/Pitch.qml" line="110"/>
+        <location filename="Pages/Pitch/Pitch.qml" line="131"/>
         <source>Band B(n): %1; 	 B(F0): &lt;span style=&apos;%3&apos;&gt;%2&lt;/span&gt; Hz</source>
         <oldsource>Band B(n): %1; 	 Band B(F0): &lt;span style=&apos;%3&apos;&gt;%2&lt;/span&gt; Hz</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Pages/Pitch/Pitch.qml" line="112"/>
+        <location filename="Pages/Pitch/Pitch.qml" line="133"/>
         <source>Asymmetry A(n): %1; 	 A(F0): &lt;span style=&apos;%3&apos;&gt;%2&lt;/span&gt; Hz</source>
         <oldsource>Assymetry A(n): %1; 	 Assymetry A(F0): &lt;span style=&apos;%3&apos;&gt;%2&lt;/span&gt; Hz</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Pages/Pitch/Pitch.qml" line="144"/>
+        <location filename="Pages/Pitch/Pitch.qml" line="165"/>
         <source>Components Number - Nc: &lt;span style=&apos;font-size: 18pt;&apos;&gt;%1&lt;/span&gt;</source>
         <translation type="unfinished"></translation>
     </message>

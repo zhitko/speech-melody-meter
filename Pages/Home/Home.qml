@@ -14,7 +14,7 @@ HomeForm {
     StackView.onActivated: {
         console.log("HomeForm.StackView.onActivated", root.startRecording)
         Bus.hideAllBottomActions()
-        Bus.showOpenButton = true
+        Bus.showOpenButton = true && Bus.canOpenButton
         Bus.showOpenTemplateButton = true
 
         if (root.startRecording == true) {

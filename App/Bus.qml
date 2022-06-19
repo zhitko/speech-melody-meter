@@ -16,7 +16,7 @@ Item {
     property bool canPlayButton: true
     property bool showOpenButton: false
     property bool showOpenTemplateButton: false
-    property bool canOpenButton: true
+    property bool canOpenButton: false
     property bool canOpenTemplateButton: true
 
     property string currentPage: ""
@@ -73,6 +73,7 @@ Item {
     function setRecordPath(path) {
         root.templatePath = root.recordPath
         root.recordPath = path
+        backend.moveRecordToTemplate()
     }
 
     function setTemplatePath(path) {
@@ -98,7 +99,7 @@ Item {
         root.canRecordButton = true
         root.canOpenTemplateButton = true
         root.canPlayButton = true
-        root.canOpenButton = true
+        root.canOpenButton = true && !backend.isMobile()
     }
 
     function playRecord(playing) {

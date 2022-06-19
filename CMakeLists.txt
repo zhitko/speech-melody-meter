@@ -15,14 +15,17 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # Check http://doc.qt.io/qt-5/deployment-android.html for more information.
 # They need to be set before the find_package(Qt5 ...) call.
 
-#if(ANDROID)
-#    set(ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/android")
-#    if (ANDROID_ABI STREQUAL "armeabi-v7a")
-#        set(ANDROID_EXTRA_LIBS
-#            ${CMAKE_CURRENT_SOURCE_DIR}/path/to/libcrypto.so
-#            ${CMAKE_CURRENT_SOURCE_DIR}/path/to/libssl.so)
-#    endif()
-#endif()
+add_subdirectory(inton-core)
+
+if(ANDROID)
+    set(ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/android")
+
+    set(ANDROID_LIB_DIR "${CMAKE_CURRENT_BINARY_DIR}/inton-core/")
+
+    set(ANDROID_EXTRA_LIBS "${CMAKE_CURRENT_BINARY_DIR}/inton-core/libIntonCore.so")
+
+    LINK_DIRECTORIES("${CMAKE_CURRENT_BINARY_DIR}/inton-core/")
+endif()
 
 if(ANDROID)
     find_package(QT NAMES Qt6 Qt5 COMPONENTS Core Quick LinguistTools QuickControls2 Widgets Charts Multimedia MultimediaWidgets AndroidExtras REQUIRED)
@@ -31,8 +34,6 @@ else()
     find_package(QT NAMES Qt6 Qt5 COMPONENTS Core Quick LinguistTools QuickControls2 Widgets Charts Multimedia MultimediaWidgets REQUIRED)
     find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core Quick LinguistTools QuickControls2 Widgets Charts Multimedia MultimediaWidgets REQUIRED)
 endif()
-
-add_subdirectory(inton-core)
 
 set(TS_FILES SpeechMelodyMeter_en_US.ts)
 
