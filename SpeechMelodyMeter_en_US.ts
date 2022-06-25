@@ -19,22 +19,22 @@
 <context>
     <name>HomeForm.ui</name>
     <message>
-        <location filename="Pages/Home/HomeForm.ui.qml" line="18"/>
+        <location filename="Pages/Home/HomeForm.ui.qml" line="15"/>
         <source>Home</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Pages/Home/HomeForm.ui.qml" line="26"/>
+        <location filename="Pages/Home/HomeForm.ui.qml" line="23"/>
         <source>Welcome to Speech Melody Meter</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Pages/Home/HomeForm.ui.qml" line="77"/>
+        <location filename="Pages/Home/HomeForm.ui.qml" line="72"/>
         <source>Click to start recording</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Pages/Home/HomeForm.ui.qml" line="77"/>
+        <location filename="Pages/Home/HomeForm.ui.qml" line="72"/>
         <source>Click to stop recording</source>
         <translation type="unfinished"></translation>
     </message>
@@ -42,25 +42,13 @@
 <context>
     <name>Pitch</name>
     <message>
-        <location filename="Pages/Pitch/Pitch.qml" line="129"/>
-        <source>Center C(n): %1; 	 C(F0): &lt;span style=&apos;%3&apos;&gt;%2&lt;/span&gt; Hz</source>
-        <oldsource>Center C(n): %1; 	 Center C(F0): &lt;span style=&apos;%3&apos;&gt;%2&lt;/span&gt; Hz</oldsource>
+        <location filename="Pages/Pitch/Pitch.qml" line="145"/>
+        <location filename="Pages/Pitch/Pitch.qml" line="149"/>
+        <source>C(F0): &lt;span style=&apos;%1&apos;&gt;%2&lt;/span&gt; Hz 	 B(F0): &lt;span style=&apos;%1&apos;&gt;%3&lt;/span&gt; Hz 	 A(F0): &lt;span style=&apos;%1&apos;&gt;%4&lt;/span&gt; Hz </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Pages/Pitch/Pitch.qml" line="131"/>
-        <source>Band B(n): %1; 	 B(F0): &lt;span style=&apos;%3&apos;&gt;%2&lt;/span&gt; Hz</source>
-        <oldsource>Band B(n): %1; 	 Band B(F0): &lt;span style=&apos;%3&apos;&gt;%2&lt;/span&gt; Hz</oldsource>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="Pages/Pitch/Pitch.qml" line="133"/>
-        <source>Asymmetry A(n): %1; 	 A(F0): &lt;span style=&apos;%3&apos;&gt;%2&lt;/span&gt; Hz</source>
-        <oldsource>Assymetry A(n): %1; 	 Assymetry A(F0): &lt;span style=&apos;%3&apos;&gt;%2&lt;/span&gt; Hz</oldsource>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="Pages/Pitch/Pitch.qml" line="165"/>
+        <location filename="Pages/Pitch/Pitch.qml" line="182"/>
         <source>Components Number - Nc: &lt;span style=&apos;font-size: 18pt;&apos;&gt;%1&lt;/span&gt;</source>
         <translation type="unfinished"></translation>
     </message>
@@ -68,45 +56,43 @@
 <context>
     <name>PitchForm.ui</name>
     <message>
-        <location filename="Pages/Pitch/PitchForm.ui.qml" line="39"/>
+        <location filename="Pages/Pitch/PitchForm.ui.qml" line="38"/>
         <source>Speech Fundamental Frequencies - F0 [Hz]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Pages/Pitch/PitchForm.ui.qml" line="70"/>
+        <location filename="Pages/Pitch/PitchForm.ui.qml" line="69"/>
         <source>F0min:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Pages/Pitch/PitchForm.ui.qml" line="91"/>
+        <location filename="Pages/Pitch/PitchForm.ui.qml" line="90"/>
         <source>dF0:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Pages/Pitch/PitchForm.ui.qml" line="111"/>
+        <location filename="Pages/Pitch/PitchForm.ui.qml" line="110"/>
         <source>F0max:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Pages/Pitch/PitchForm.ui.qml" line="166"/>
+        <location filename="Pages/Pitch/PitchForm.ui.qml" line="165"/>
         <source>Basic Parameters Of Histograme</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Pages/Pitch/PitchForm.ui.qml" line="179"/>
+        <location filename="Pages/Pitch/PitchForm.ui.qml" line="178"/>
         <source>▲</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Pages/Pitch/PitchForm.ui.qml" line="179"/>
+        <location filename="Pages/Pitch/PitchForm.ui.qml" line="178"/>
         <source>▼</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Pages/Pitch/PitchForm.ui.qml" line="210"/>
-        <location filename="Pages/Pitch/PitchForm.ui.qml" line="236"/>
-        <location filename="Pages/Pitch/PitchForm.ui.qml" line="262"/>
-        <location filename="Pages/Pitch/PitchForm.ui.qml" line="288"/>
+        <location filename="Pages/Pitch/PitchForm.ui.qml" line="200"/>
+        <location filename="Pages/Pitch/PitchForm.ui.qml" line="220"/>
         <source>0</source>
         <translation type="unfinished"></translation>
     </message>

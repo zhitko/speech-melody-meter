@@ -16,7 +16,7 @@ Item {
     property bool canPlayButton: true
     property bool showOpenButton: false
     property bool showOpenTemplateButton: false
-    property bool canOpenButton: false
+    property bool canOpenButton: !backend.isMobile()
     property bool canOpenTemplateButton: true
 
     property string currentPage: ""

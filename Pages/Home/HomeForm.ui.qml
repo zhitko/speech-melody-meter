@@ -12,9 +12,6 @@ Page {
     property alias recordButton: recordButton
     property alias pianoBtn: pianoBtn
 
-    width: Config.pageWidth
-    height: Config.pageHeight
-
     title: qsTr("Home")
 
     Label {
@@ -31,7 +28,6 @@ Page {
 
     Image {
         id: wave
-        anchors.horizontalCenter: parent.horizontalCenter
         anchors.top: welcomeText.bottom
         anchors.topMargin: 10
         anchors.left: parent.left
@@ -44,7 +40,6 @@ Page {
 
     Image {
         id: piano
-        anchors.horizontalCenter: parent.horizontalCenter
         anchors.top: wave.bottom
         anchors.topMargin: 10
         anchors.left: parent.left

@@ -37,9 +37,9 @@ Backend::~Backend()
 bool Backend::isMobile()
 {
 #ifdef ANDROID
-    return false;
-#else
     return true;
+#else
+    return false;
 #endif
 }
 
@@ -716,9 +716,10 @@ int CG(QVariantList data, int min, int max)
         sumF0 += data.at(i).toDouble();
         sumNF0 += data.at(i).toDouble() * (i+1);
     }
-    if (sumF0 != 0)
+    qDebug() << "GC sumF0 " << sumF0;
+    if (sumF0 != 0 && sumF0 == sumF0)
     {
-        CG = round(sumNF0 / sumF0);
+        CG = round(sumNF0 / (sumF0));
     }
 
     return CG;

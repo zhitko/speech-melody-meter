@@ -58,6 +58,8 @@ WaveFile * PcmRecorder::stopRecording()
 
     this->audio->stop();
 
+    qDebug() << "PcmRecorder::stopRecording buffer->size" << this->buffer->size();
+
     WaveFile * file = IntonCore::Helpers::makeSimpleWaveFileFromRawData(
         path.toStdString(),
         this->buffer->data().constData(),

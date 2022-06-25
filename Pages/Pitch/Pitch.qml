@@ -119,6 +119,20 @@ PitchForm {
         if (!!recordData[2]) recordSeries[recordData[2]-1] = 1
         console.log("PitchForm.showOctavesMarks Record", recordSeries)
         root.octavesMarksSeries.append("Record", recordSeries)
+
+        let templateData = Bus.getTemplateOcavesMetrics(false)
+        console.log("PitchForm.showOctavesMarks templateData", templateData)
+        if (templateData.length !== 0) {
+            let temlateSeries = []
+            for (let i in octavesCategorisX.categories) {
+                temlateSeries.push(0)
+            }
+            if (!!templateData[0]) temlateSeries[templateData[0]-1] = 1
+            if (!!templateData[1]) temlateSeries[templateData[1]-1] = 1
+            if (!!templateData[2]) temlateSeries[templateData[2]-1] = 1
+            console.log("PitchForm.showOctavesMarks Template", temlateSeries)
+            root.octavesMarksSeries.append("Template", temlateSeries)
+        }
     }
 
     function showOctavesMetrics() {
@@ -126,12 +140,15 @@ PitchForm {
 
         let style = "font-size: 18pt;"
         let recordData = Bus.getPitchOcavesMetrics(false)
-        root.rValue.text = qsTr("Center C(n): %1; \t C(F0): <span style='%3'>%2</span> Hz")
-            .arg(recordData[0]).arg(recordData[3]).arg(style)
-        root.dValue.text = qsTr("Band B(n): %1; \t B(F0): <span style='%3'>%2</span> Hz")
-            .arg(recordData[4]).arg(recordData[5]).arg(style)
-        root.aValue.text = qsTr("Asymmetry A(n): %1; \t A(F0): <span style='%3'>%2</span> Hz")
-            .arg(recordData[6]).arg(recordData[7]).arg(style)
+        let templateData = Bus.getTemplateOcavesMetrics(false)
+
+        root.firstValue.text = qsTr("C(F0): <span style='%1'>%2</span> Hz \t B(F0): <span style='%1'>%3</span> Hz \t A(F0): <span style='%1'>%4</span> Hz ")
+        .arg(style).arg(recordData[3]).arg(recordData[5]).arg(recordData[7])
+
+        if (templateData.length !== 0) {
+            root.secondValue.text = qsTr("C(F0): <span style='%1'>%2</span> Hz \t B(F0): <span style='%1'>%3</span> Hz \t A(F0): <span style='%1'>%4</span> Hz ")
+                .arg(style).arg(templateData[3]).arg(templateData[5]).arg(templateData[7])
+        }
 
         Bus.setResultItem("5. C(F0)", recordData[3])
         Bus.setResultItem("4. B(F0)", recordData[5])

@@ -18,9 +18,8 @@ Page {
     property alias octavesMarksCategorisY: octavesMarksCategorisY
     property alias settingsButton: settingsButton
 
-    property alias rValue: rValue
-    property alias aValue: aValue
-    property alias dValue: dValue
+    property alias firstValue: firstValue
+    property alias secondValue: secondValue
 
     property bool settingsVisible: true
     property bool settingsNeedApply: false
@@ -193,44 +192,29 @@ Page {
 
         spacing: 10
 
-        RowLayout {
+        Text {
             Layout.fillWidth: true
-
-            Rectangle {
-                id: ncBar
-                color: Colors.varmillion
-                Layout.fillWidth: true
-                Layout.fillHeight: true
-            }
-
-            Text {
-                id: settingsNcValue
-                Layout.leftMargin: 10
-                Layout.rightMargin: 10
-                text: qsTr("0")
-                textFormat: Text.RichText
-                font.pointSize: 12
-            }
-
-            Rectangle {
-                color: ncBar.color
-                Layout.fillWidth: true
-                Layout.fillHeight: true
-            }
+            id: settingsNcValue
+            Layout.leftMargin: 10
+            Layout.rightMargin: 10
+            text: qsTr("0")
+            textFormat: Text.RichText
+            font.pointSize: 12
+            horizontalAlignment: Text.AlignHCenter
         }
 
         RowLayout {
             Layout.fillWidth: true
 
             Rectangle {
-                id: rBar
+                id: firstBar
                 color: Colors.blue
                 Layout.fillWidth: true
                 Layout.fillHeight: true
             }
 
             Text {
-                id: rValue
+                id: firstValue
                 Layout.leftMargin: 10
                 Layout.rightMargin: 10
                 text: qsTr("0")
@@ -239,7 +223,7 @@ Page {
             }
 
             Rectangle {
-                color: rBar.color
+                color: firstBar.color
                 Layout.fillWidth: true
                 Layout.fillHeight: true
             }
@@ -247,51 +231,26 @@ Page {
 
         RowLayout {
             Layout.fillWidth: true
+            visible: secondValue.text != ""
 
             Rectangle {
-                id: dBar
+                id: secondBar
                 color: Colors.light_green
                 Layout.fillWidth: true
                 Layout.fillHeight: true
             }
 
             Text {
-                id: dValue
+                id: secondValue
                 Layout.leftMargin: 10
                 Layout.rightMargin: 10
-                text: qsTr("0")
+                text: ""
                 textFormat: Text.RichText
                 font.pointSize: 12
             }
 
             Rectangle {
-                color: dBar.color
-                Layout.fillWidth: true
-                Layout.fillHeight: true
-            }
-        }
-
-        RowLayout {
-            Layout.fillWidth: true
-
-            Rectangle {
-                id: aBar
-                color: Colors.raspberry
-                Layout.fillWidth: true
-                Layout.fillHeight: true
-            }
-
-            Text {
-                id: aValue
-                Layout.leftMargin: 10
-                Layout.rightMargin: 10
-                text: qsTr("0")
-                textFormat: Text.RichText
-                font.pointSize: 12
-            }
-
-            Rectangle {
-                color: aBar.color
+                color: secondBar.color
                 Layout.fillWidth: true
                 Layout.fillHeight: true
             }
