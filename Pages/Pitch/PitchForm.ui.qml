@@ -217,7 +217,7 @@ Page {
                 id: firstValue
                 Layout.leftMargin: 10
                 Layout.rightMargin: 10
-                text: qsTr("0")
+                text: ""
                 textFormat: Text.RichText
                 font.pointSize: 12
             }

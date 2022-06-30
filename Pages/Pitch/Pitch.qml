@@ -142,12 +142,24 @@ PitchForm {
         let recordData = Bus.getPitchOcavesMetrics(false)
         let templateData = Bus.getTemplateOcavesMetrics(false)
 
-        root.firstValue.text = qsTr("C(F0): <span style='%1'>%2</span> Hz \t B(F0): <span style='%1'>%3</span> Hz \t A(F0): <span style='%1'>%4</span> Hz ")
-        .arg(style).arg(recordData[3]).arg(recordData[5]).arg(recordData[7])
+        let template = qsTr("{ C: <span style='%1'>%2</span> Hz }\t{ B: <span style='%1'>%3</span> Hz }\t{ A: <span style='%1'>%5</span><span style='%1'>%4</span> Hz }");
+
+        console.log("PitchForm.showOctavesMetrics recordData ", recordData)
+        console.log("PitchForm.showOctavesMetrics recordData[7] ", recordData[7])
+        root.firstValue.text = qsTr(template).arg(style)
+            .arg(recordData[3])
+            .arg(recordData[5])
+            .arg(recordData[7])
+            .arg(Number(recordData[7])>0?"+":"")
 
         if (templateData.length !== 0) {
-            root.secondValue.text = qsTr("C(F0): <span style='%1'>%2</span> Hz \t B(F0): <span style='%1'>%3</span> Hz \t A(F0): <span style='%1'>%4</span> Hz ")
-                .arg(style).arg(templateData[3]).arg(templateData[5]).arg(templateData[7])
+            console.log("PitchForm.showOctavesMetrics templateData ", templateData)
+            console.log("PitchForm.showOctavesMetrics templateData[7] ", templateData[7])
+            root.secondValue.text = template.arg(style)
+                .arg(templateData[3])
+                .arg(templateData[5])
+                .arg(templateData[7])
+                .arg(Number(templateData[7])>0?"+":"")
         }
 
         Bus.setResultItem("5. C(F0)", recordData[3])
@@ -179,7 +191,7 @@ PitchForm {
         settingsF0MinValue.text = settings["HistogramF0min"]
         settingsDF0Value.text = settings["HistogramDF0"]
         settingsF0MaxValue.text = settings["HistogramF0max"]
-        settingsNcValue.text = qsTr("Components Number - Nc: <span style='font-size: 18pt;'>%1</span>")
+        settingsNcValue.text = qsTr("Components Number - N: <span style='font-size: 18pt;'>%1</span>")
             .arg(settings["HistogramComponentsNumber"])
         root.settingsNeedApply = false
         root.maxCategoryItem.text = settingsF0MaxValue.text

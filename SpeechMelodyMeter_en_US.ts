@@ -43,13 +43,14 @@
     <name>Pitch</name>
     <message>
         <location filename="Pages/Pitch/Pitch.qml" line="145"/>
-        <location filename="Pages/Pitch/Pitch.qml" line="149"/>
-        <source>C(F0): &lt;span style=&apos;%1&apos;&gt;%2&lt;/span&gt; Hz 	 B(F0): &lt;span style=&apos;%1&apos;&gt;%3&lt;/span&gt; Hz 	 A(F0): &lt;span style=&apos;%1&apos;&gt;%4&lt;/span&gt; Hz </source>
+        <source>{ C: &lt;span style=&apos;%1&apos;&gt;%2&lt;/span&gt; Hz }	{ B: &lt;span style=&apos;%1&apos;&gt;%3&lt;/span&gt; Hz }	{ A: &lt;span style=&apos;%1&apos;&gt;%5&lt;/span&gt;&lt;span style=&apos;%1&apos;&gt;%4&lt;/span&gt; Hz }</source>
+        <oldsource>{ C: &lt;span style=&apos;%1&apos;&gt;%2&lt;/span&gt; Hz }	{ B: &lt;span style=&apos;%1&apos;&gt;%3&lt;/span&gt; Hz }	{ A: &lt;span style=&apos;%1&apos;&gt;%4&lt;/span&gt; Hz }</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Pages/Pitch/Pitch.qml" line="182"/>
-        <source>Components Number - Nc: &lt;span style=&apos;font-size: 18pt;&apos;&gt;%1&lt;/span&gt;</source>
+        <location filename="Pages/Pitch/Pitch.qml" line="194"/>
+        <source>Components Number - N: &lt;span style=&apos;font-size: 18pt;&apos;&gt;%1&lt;/span&gt;</source>
+        <oldsource>Components Number - Nc: &lt;span style=&apos;font-size: 18pt;&apos;&gt;%1&lt;/span&gt;</oldsource>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -92,7 +93,6 @@
     </message>
     <message>
         <location filename="Pages/Pitch/PitchForm.ui.qml" line="200"/>
-        <location filename="Pages/Pitch/PitchForm.ui.qml" line="220"/>
         <source>0</source>
         <translation type="unfinished"></translation>
     </message>
