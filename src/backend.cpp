@@ -713,8 +713,8 @@ int CG(QVariantList data, int min, int max)
     auto CG = 0;
     for (int i=min; i<(max-1); i++)
     {
-        sumF0 += data.at(i).toDouble();
-        sumNF0 += data.at(i).toDouble() * (i+1);
+        sumF0 += data.at(i).toDouble()*data.at(i).toDouble();
+        sumNF0 += data.at(i).toDouble()*data.at(i).toDouble() * (i+1);
     }
     qDebug() << "GC sumF0 " << sumF0;
     if (sumF0 != 0 && sumF0 == sumF0)
