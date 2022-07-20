@@ -57,5 +57,7 @@
         <file>Assets/Images/wave_long.png</file>
         <file>Pages/Results/Results.qml</file>
         <file>Pages/Results/ResultsForm.ui.qml</file>
+        <file>Pages/Policy/Policy.qml</file>
+        <file>Pages/Policy/PolicyForm.ui.qml</file>
     </qresource>
 </RCC>

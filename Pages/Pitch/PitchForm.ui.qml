@@ -32,6 +32,7 @@ Page {
     property alias settingsNcValue: settingsNcValue
     property alias settingsApplyButton: settingsApplyButton
     property alias maxCategoryItem: maxCategoryItem
+    property alias minCategoryItem: minCategoryItem
 
     width: Config.pageWidth
     height: Config.pageHeight
@@ -258,40 +259,6 @@ Page {
     }
 
     ChartView {
-        id: octavesMarks
-        height: 50
-
-        anchors.bottom: parent.bottom
-        anchors.left: octaves.left
-        anchors.right: octaves.right
-
-        margins.bottom: 0
-        margins.top: 0
-        margins.left: 30
-        margins.right: 0
-
-        legend.visible: false
-
-        BarSeries {
-            id: octavesMarksSeries
-            barWidth: 1
-            axisX: BarCategoryAxis {
-                id: octavesMarksCategorisX
-                labelsFont.pointSize: 0
-                visible: false
-            }
-            axisY: ValueAxis {
-                id: octavesMarksCategorisY
-                labelsFont.pointSize: 8
-                max: 1
-                min: 0
-                tickCount: 2
-                visible: false
-            }
-        }
-    }
-
-    ChartView {
         id: octaves
         height: 300
 
@@ -325,42 +292,78 @@ Page {
         }
     }
 
+    ChartView {
+        id: octavesMarks
+        height: 50
+
+        anchors.bottom: parent.bottom
+        anchors.left: octaves.left
+        anchors.right: octaves.right
+
+        margins.bottom: 0
+        margins.top: 0
+        margins.left: 30
+        margins.right: 0
+
+        legend.visible: false
+
+        BarSeries {
+            id: octavesMarksSeries
+            barWidth: 1
+            axisX: BarCategoryAxis {
+                id: octavesMarksCategorisX
+                labelsFont.pointSize: 0
+                visible: false
+            }
+            axisY: ValueAxis {
+                id: octavesMarksCategorisY
+                labelsFont.pointSize: 8
+                max: 5
+                min: 0
+                tickCount: 2
+                visible: false
+            }
+        }
+    }
+
     ListView {
         id: newCategories
         orientation: ListView.Horizontal
         height: 30
-        width: octaves.plotArea.width
+        width: octaves.plotArea.width + 1
         anchors.left: octaves.left
-        anchors.leftMargin: octaves.plotArea.x
+        anchors.leftMargin: octaves.plotArea.x - 1
         anchors.bottom: octaves.bottom
-        model: optimazedCategories
+        model: [1,2,3,4]
         delegate: Rectangle {
-            width: ListView.view.width / optimazedCategories.length + (index === 0 ? 1 : 0)
+            width: ListView.view.width / 4 + (index === 0 ? 2 : 0)
             height: 30
             color: 'lightgray'
             Rectangle {
                 anchors.fill: parent
-                anchors.rightMargin: 1
-                anchors.leftMargin: index === 0 ? 1 : 0
-                Label {
-                    anchors.fill: parent
-                    text: optimazedCategories[index]
-                    font.pointSize:  10
-                    horizontalAlignment: "AlignLeft"
-                    anchors.leftMargin: 5
-                    verticalAlignment: "AlignVCenter"
-                }
+                anchors.rightMargin: 2
+                anchors.leftMargin: index === 0 ? 2 : 0
             }
         }
     }
 
     Label {
-        id: maxCategoryItem
-        anchors.right: newCategories.right
-        anchors.rightMargin: 5
-        anchors.verticalCenter: newCategories.verticalCenter
+        id: minCategoryItem
+        anchors.bottom: octaves.bottom
+        anchors.left: octaves.left
+        anchors.leftMargin: octaves.plotArea.x + 5
         text: ""
         font.pointSize:  10
-        verticalAlignment: "AlignVCenter"
+        font.bold: true
+    }
+
+    Label {
+        id: maxCategoryItem
+        anchors.bottom: octaves.bottom
+        anchors.right: octaves.right
+        anchors.rightMargin: 15
+        text: ""
+        font.pointSize:  10
+        font.bold: true
     }
 }

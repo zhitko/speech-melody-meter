@@ -309,6 +309,10 @@ Item {
         goToPage(Enum.pageResults)
     }
 
+    function goPolicy() {
+        goToPage(Enum.pagePolicy)
+    }
+
     /*---------------------------------------------------------
       Helpers
       ---------------------------------------------------------*/

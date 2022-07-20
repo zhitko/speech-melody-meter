@@ -7,4 +7,5 @@ Item {
     readonly property string pageSettings: "../Pages/Settings/Settings.qml"
     readonly property string pageRecord: "../Pages/Record/Record.qml"
     readonly property string pageResults: "../Pages/Results/Results.qml"
+    readonly property string pagePolicy: "../Pages/Policy/Policy.qml"
 }

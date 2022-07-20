@@ -114,9 +114,9 @@ PitchForm {
         for (let i in octavesCategorisX.categories) {
             recordSeries.push(0)
         }
-        if (!!recordData[0]) recordSeries[recordData[0]-1] = 1
-        if (!!recordData[1]) recordSeries[recordData[1]-1] = 1
-        if (!!recordData[2]) recordSeries[recordData[2]-1] = 1
+        if (!!recordData[0]) recordSeries[recordData[0]-1] = 5
+        if (!!recordData[1]) recordSeries[recordData[1]-1] = 3
+        if (!!recordData[2]) recordSeries[recordData[2]-1] = 3
         console.log("PitchForm.showOctavesMarks Record", recordSeries)
         root.octavesMarksSeries.append("Record", recordSeries)
 
@@ -127,9 +127,9 @@ PitchForm {
             for (let i in octavesCategorisX.categories) {
                 temlateSeries.push(0)
             }
-            if (!!templateData[0]) temlateSeries[templateData[0]-1] = 1
-            if (!!templateData[1]) temlateSeries[templateData[1]-1] = 1
-            if (!!templateData[2]) temlateSeries[templateData[2]-1] = 1
+            if (!!templateData[0]) temlateSeries[templateData[0]-1] = 5
+            if (!!templateData[1]) temlateSeries[templateData[1]-1] = 3
+            if (!!templateData[2]) temlateSeries[templateData[2]-1] = 3
             console.log("PitchForm.showOctavesMarks Template", temlateSeries)
             root.octavesMarksSeries.append("Template", temlateSeries)
         }
@@ -194,6 +194,7 @@ PitchForm {
         settingsNcValue.text = qsTr("Components Number - N: <span style='font-size: 18pt;'>%1</span>")
             .arg(settings["HistogramComponentsNumber"])
         root.settingsNeedApply = false
+        root.minCategoryItem.text = settingsF0MinValue.text
         root.maxCategoryItem.text = settingsF0MaxValue.text
 
         Bus.setResultItem("6. F0min", settings["HistogramF0min"])

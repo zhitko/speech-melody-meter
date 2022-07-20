@@ -112,6 +112,21 @@ ApplicationWindow {
                     color: "black"
                 }
             }
+
+            ItemDelegate {
+                width: parent.width
+                onClicked: {
+                    Bus.goPolicy()
+                    drawer.close()
+                }
+
+                FontAwesomeIconText {
+                    icon: FontAwesome.icons.faFileAlt
+                    text: qsTr("Privacy Policy")
+                    anchors.verticalCenter: parent.verticalCenter
+                    color: "black"
+                }
+            }
         }
     }
 }

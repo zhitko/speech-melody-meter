@@ -30,12 +30,12 @@
     </message>
     <message>
         <location filename="Pages/Home/HomeForm.ui.qml" line="72"/>
-        <source>Click to start recording</source>
+        <source>Click to stop recording</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="Pages/Home/HomeForm.ui.qml" line="72"/>
-        <source>Click to stop recording</source>
+        <source>Click to start recording</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -44,56 +44,62 @@
     <message>
         <location filename="Pages/Pitch/Pitch.qml" line="145"/>
         <source>{ C: &lt;span style=&apos;%1&apos;&gt;%2&lt;/span&gt; Hz }	{ B: &lt;span style=&apos;%1&apos;&gt;%3&lt;/span&gt; Hz }	{ A: &lt;span style=&apos;%1&apos;&gt;%5&lt;/span&gt;&lt;span style=&apos;%1&apos;&gt;%4&lt;/span&gt; Hz }</source>
-        <oldsource>{ C: &lt;span style=&apos;%1&apos;&gt;%2&lt;/span&gt; Hz }	{ B: &lt;span style=&apos;%1&apos;&gt;%3&lt;/span&gt; Hz }	{ A: &lt;span style=&apos;%1&apos;&gt;%4&lt;/span&gt; Hz }</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="Pages/Pitch/Pitch.qml" line="194"/>
         <source>Components Number - N: &lt;span style=&apos;font-size: 18pt;&apos;&gt;%1&lt;/span&gt;</source>
-        <oldsource>Components Number - Nc: &lt;span style=&apos;font-size: 18pt;&apos;&gt;%1&lt;/span&gt;</oldsource>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>PitchForm.ui</name>
     <message>
-        <location filename="Pages/Pitch/PitchForm.ui.qml" line="38"/>
+        <location filename="Pages/Pitch/PitchForm.ui.qml" line="39"/>
         <source>Speech Fundamental Frequencies - F0 [Hz]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Pages/Pitch/PitchForm.ui.qml" line="69"/>
+        <location filename="Pages/Pitch/PitchForm.ui.qml" line="70"/>
         <source>F0min:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Pages/Pitch/PitchForm.ui.qml" line="90"/>
+        <location filename="Pages/Pitch/PitchForm.ui.qml" line="91"/>
         <source>dF0:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Pages/Pitch/PitchForm.ui.qml" line="110"/>
+        <location filename="Pages/Pitch/PitchForm.ui.qml" line="111"/>
         <source>F0max:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Pages/Pitch/PitchForm.ui.qml" line="165"/>
+        <location filename="Pages/Pitch/PitchForm.ui.qml" line="166"/>
         <source>Basic Parameters Of Histograme</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Pages/Pitch/PitchForm.ui.qml" line="178"/>
+        <location filename="Pages/Pitch/PitchForm.ui.qml" line="179"/>
         <source>▲</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Pages/Pitch/PitchForm.ui.qml" line="178"/>
+        <location filename="Pages/Pitch/PitchForm.ui.qml" line="179"/>
         <source>▼</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Pages/Pitch/PitchForm.ui.qml" line="200"/>
+        <location filename="Pages/Pitch/PitchForm.ui.qml" line="201"/>
         <source>0</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>PolicyForm.ui</name>
+    <message>
+        <location filename="Pages/Policy/PolicyForm.ui.qml" line="11"/>
+        <source>Privacy Policy</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -131,7 +137,6 @@
     <message>
         <location filename="main.qml" line="16"/>
         <source>Speech Melody Meter</source>
-        <oldsource>Prosody Meter</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -147,6 +152,11 @@
     <message>
         <location filename="main.qml" line="110"/>
         <source>Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="main.qml" line="125"/>
+        <source>Privacy Policy</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

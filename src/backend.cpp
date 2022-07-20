@@ -644,7 +644,7 @@ QVariantList Backend::getOctavesOptimazedCategories()
 {
     auto actaves = this->getOctavesSetting();
 
-    const int MAX_CATEGORIES = 5;
+    const int MAX_CATEGORIES = 1;
     int actavesSize = actaves.size();
     int count = 1;
 
