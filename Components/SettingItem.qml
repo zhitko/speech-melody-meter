@@ -36,7 +36,7 @@ ColumnLayout {
         visible: type === "double_list"
         enabled: editable
         onTextChanged: {
-            input.text = changed(key, input.text)
+            input.text = changed(key, inputArea.text)
         }
     }
     Switch {

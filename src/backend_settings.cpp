@@ -122,12 +122,33 @@ QString Backend::setSettings(QString id, QString value)
 
     settings.setValue(ApplicationConfig::SettingsValueKey(id), value);
 
-    if (id == ApplicationConfig::SETTINGS_HISTOGRAM_F0MIN
-            || id == ApplicationConfig::SETTINGS_HISTOGRAM_F0MAX
-            || id == ApplicationConfig::SETTINGS_HISTOGRAM_DF0)
+    // ----------------------
+    // SETTINGS_PITCH_OCTAVES
+
+    auto settingsPitchOctavesEnabled = settings.value(
+                ApplicationConfig::SettingsValueKey(ApplicationConfig::SETTINGS_PITCH_OCTAVES_ENABLED)
+            ).toString();
+    qDebug() << "setSettings: PITCH_OCTAVES_ENABLED " << settingsPitchOctavesEnabled;
+
+    if (settingsPitchOctavesEnabled == ApplicationConfig::SETTINGS_FALSE)
     {
-        pitchOctavesSeriesHook(&settings);
+        if (id == ApplicationConfig::SETTINGS_HISTOGRAM_F0MIN
+                || id == ApplicationConfig::SETTINGS_HISTOGRAM_F0MAX
+                || id == ApplicationConfig::SETTINGS_HISTOGRAM_DF0)
+        {
+            pitchOctavesSeriesHook(&settings);
+        }
+
+        if (id == ApplicationConfig::SETTINGS_PITCH_OCTAVES_ENABLED
+                && value == ApplicationConfig::SETTINGS_FALSE)
+        {
+            pitchOctavesSeriesHook(&settings);
+        }
     }
+
+    // SETTINGS_PITCH_OCTAVES
+    // ----------------------
+
     settings.sync();
 
     return value;

@@ -389,6 +389,7 @@ QVariantList calculatePitchSegmentsCount(
     if (cutted)
     {
         auto intensity = storage->getIntensity();
+        qDebug() << "getPitchDataCutted intensity " << intensity.size();
         auto data = storage->getAutoSegmentsByIntensitySmoothed();
         qDebug() << "getPitchDataCutted count " << data.size();
 
@@ -706,7 +707,27 @@ QVariantList Backend::getOctavesCategories()
     return result;
 }
 
-int CG(QVariantList data, int min, int max)
+int CG(QVariantList data, int min, int max, int powK)
+{
+    auto sumNF0 = 0.0;
+    auto sumF0 = 0.0;
+    auto CG = min;
+    for (int i=min; i<(max-1); i++)
+    {
+        auto val = pow(data.at(i).toDouble(), powK);
+        sumF0 += val;
+        sumNF0 += val * (i+1);
+    }
+    qDebug() << "GC sumF0 " << sumF0;
+    if (sumF0 != 0 && sumF0 == sumF0)
+    {
+        CG = round(sumNF0 / sumF0);
+    }
+
+    return CG;
+}
+
+int CG2(QVariantList data, int min, int max)
 {
     auto sumNF0 = 0.0;
     auto sumF0 = 0.0;
@@ -719,7 +740,7 @@ int CG(QVariantList data, int min, int max)
     qDebug() << "GC sumF0 " << sumF0;
     if (sumF0 != 0 && sumF0 == sumF0)
     {
-        CG = round(sumNF0 / (sumF0));
+        CG = round(sumNF0 / sumF0);
     }
 
     return CG;
@@ -728,15 +749,16 @@ int CG(QVariantList data, int min, int max)
 QVariantList getOcavesMetrics(
         QVariantList data,
         int F0Min,
-        int F0Step)
+        int F0Step,
+        int powK)
 {
     qDebug() << "getOcavesMetrics F0Min: " << F0Min;
     qDebug() << "getOcavesMetrics F0Step: " << F0Step;
     qDebug() << "getOcavesMetrics data: " << data.size();
 
-    int N0 = CG(data, 0, data.size());
-    int N0m = CG(data, 0, N0-1);
-    int N0p = CG(data, N0+1, data.size());
+    int N0 = CG2(data, 0, data.size());
+    int N0m = CG(data, 0, N0, powK);
+    int N0p = CG(data, N0, data.size(), powK);
 
     qDebug() << "getOcavesMetrics N0: " << N0;
     qDebug() << "getOcavesMetrics N0-: " << N0m;
@@ -745,7 +767,7 @@ QVariantList getOcavesMetrics(
     int RF0 = N0*F0Step+F0Min;
 
     int DN = N0p - N0m;
-    int DF0 = (N0p*F0Step+F0Min) - (N0m*F0Step+F0Min);
+    int DF0 = (N0p - N0m) * F0Step;
 
     int AN = (N0p + N0m) - 2*N0;
     int AF0 = AN*F0Step;
@@ -760,16 +782,17 @@ QVariantList getOcavesMetrics(
     result.append(N0);  // 0
     result.append(N0m); // 1
     result.append(N0p); // 2
-    result.append(RF0);  // 3
+    result.append(RF0);  // 3 C
     result.append(DN);  // 4
-    result.append(DF0);  // 5
+    result.append(DF0);  // 5 B
     result.append(AN);  // 6
-    result.append(AF0);  // 7
+    result.append(AF0);  // 7 A
     return result;
 }
 
 QVariantList Backend::getPitchOcavesMetrics(QString path, bool isFull)
 {
+    qDebug() << "getPitchOcavesMetrics: isFull " << isFull;
     this->initializeRecordCore(path);
 
     this->core->setPitchConfig(
@@ -801,11 +824,15 @@ QVariantList Backend::getPitchOcavesMetrics(QString path, bool isFull)
     auto mean = this->getSettingValue(ApplicationConfig::SETTINGS_OCTAVES_HISTOGRAM_MEAN).toBool();
     auto threshold = this->getSettingValue(ApplicationConfig::SETTINGS_HISTOGRAM_THRESHOLD).toDouble();
     auto DF0 = this->getSettingValue(ApplicationConfig::SETTINGS_HISTOGRAM_F0MIN).toInt();
+    auto powK = this->getSettingValue(ApplicationConfig::SETTINGS_HISTOGRAM_F0POWK).toInt();
     auto DF0ind = this->getSettingValue(ApplicationConfig::SETTINGS_HISTOGRAM_DF0).toInt();
+    if (this->getSettingValue(ApplicationConfig::SETTINGS_PITCH_OCTAVES_ENABLED).toString() == ApplicationConfig::SETTINGS_TRUE ) {
+        DF0ind = (actaves.back() - actaves.front()) / actaves.size();
+    }
 
     auto data = calculatePitchSegmentsCount(storage, actaves, !isFull, mean, threshold);
 
-    auto result = getOcavesMetrics(data, DF0, DF0ind);
+    auto result = getOcavesMetrics(data, DF0, DF0ind, powK);
 
     return result;
 }
@@ -843,11 +870,12 @@ QVariantList Backend::getTemplateOcavesMetrics(QString path, bool isFull)
     auto mean = this->getSettingValue(ApplicationConfig::SETTINGS_OCTAVES_HISTOGRAM_MEAN).toBool();
     auto threshold = this->getSettingValue(ApplicationConfig::SETTINGS_HISTOGRAM_THRESHOLD).toDouble();
     auto DF0 = this->getSettingValue(ApplicationConfig::SETTINGS_HISTOGRAM_F0MIN).toInt();
+    auto powK = this->getSettingValue(ApplicationConfig::SETTINGS_HISTOGRAM_F0POWK).toInt();
     auto DF0ind = this->getSettingValue(ApplicationConfig::SETTINGS_HISTOGRAM_DF0).toInt();
 
     auto data = calculatePitchSegmentsCount(storage, actaves, !isFull, mean, threshold);
 
-    auto result = getOcavesMetrics(data, DF0, DF0ind);
+    auto result = getOcavesMetrics(data, DF0, DF0ind, powK);
 
     return result;
 }

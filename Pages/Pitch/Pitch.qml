@@ -45,6 +45,11 @@ PitchForm {
 
         optimazedCategories = Bus.getOctavesOptimazedCategories()
         octavesCategories = Bus.getOctavesCategories()
+        console.log("PitchForm.initializeData octavesCategories: ", octavesCategories)
+        root.minCategoryItem.text = octavesCategories[0]
+        root.maxCategoryItem.text = octavesCategories[octavesCategories.length - 1]
+        settingsNcValue.text = qsTr("Components Number - N: <span style='font-size: 18pt;'>%1</span>")
+            .arg(octavesCategories.length+1)
 
         showOctaves()
         showOctavesMetrics()
@@ -191,16 +196,15 @@ PitchForm {
         settingsF0MinValue.text = settings["HistogramF0min"]
         settingsDF0Value.text = settings["HistogramDF0"]
         settingsF0MaxValue.text = settings["HistogramF0max"]
-        settingsNcValue.text = qsTr("Components Number - N: <span style='font-size: 18pt;'>%1</span>")
-            .arg(settings["HistogramComponentsNumber"])
         root.settingsNeedApply = false
-        root.minCategoryItem.text = settingsF0MinValue.text
-        root.maxCategoryItem.text = settingsF0MaxValue.text
 
         Bus.setResultItem("6. F0min", settings["HistogramF0min"])
         Bus.setResultItem("7. F0max", settings["HistogramF0max"])
         Bus.setResultItem("8. dF0", settings["HistogramDF0"])
         Bus.setResultItem("9. Nc", settings["HistogramComponentsNumber"])
+
+        console.log("Pitch Octaves Series Enabled:", settings["PitchOctavesSeriesEnabled"])
+        root.pitchOctavesSeriesEnabled = settings["PitchOctavesSeriesEnabled"] === "true";
     }
 
     settingsButton.onClicked: {

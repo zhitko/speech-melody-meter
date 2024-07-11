@@ -34,12 +34,15 @@ Page {
     property alias maxCategoryItem: maxCategoryItem
     property alias minCategoryItem: minCategoryItem
 
+    property bool pitchOctavesSeriesEnabled: false
+
     width: Config.pageWidth
     height: Config.pageHeight
     title: qsTr("Speech Fundamental Frequencies - F0 [Hz]")
 
     Rectangle {
         id: settingsFrame
+        visible: !root.pitchOctavesSeriesEnabled
 
         color: Colors.blue
 
@@ -53,6 +56,7 @@ Page {
 
     GridLayout {
         id: settingsLayout
+        visible: !root.pitchOctavesSeriesEnabled
 
         columns: 6
 
@@ -143,6 +147,8 @@ Page {
 
     Rectangle {
         id: settingsButtonFrame
+        visible: !root.pitchOctavesSeriesEnabled
+
         height: 25
 
         color: settingsFrame.color
@@ -186,7 +192,7 @@ Page {
 
     ColumnLayout {
         id: mainLayout
-        anchors.top: settingsLayout.bottom
+        anchors.top: root.pitchOctavesSeriesEnabled ? parent.top : settingsLayout.bottom
         anchors.topMargin: 30
         anchors.right: parent.right
         anchors.left: parent.left

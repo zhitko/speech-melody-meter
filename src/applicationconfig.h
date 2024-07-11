@@ -70,7 +70,7 @@ namespace ApplicationConfig {
     }
 
     static const QString SETTINGS_VERSION_KEY = "version";
-    static const QString SETTINGS_VERSION_VALUE = "9";
+    static const QString SETTINGS_VERSION_VALUE = "10";
 
     static const int RecordingFrequency =  8000;
     static const int RecordingBitsPerSample =  16;
@@ -103,10 +103,12 @@ namespace ApplicationConfig {
     static const QString SETTINGS_PITCH_MAXIMUM_F0 = "PitchMaximumF0";
     static const QString SETTINGS_PITCH_NORMALIZED = "PitchNormalized";
     static const QString SETTINGS_PITCH_OCTAVES = "PitchOctavesSeries";
+    static const QString SETTINGS_PITCH_OCTAVES_ENABLED = "PitchOctavesSeriesEnabled";
     static const QString SETTINGS_PITCH_NORMALIZE_BY_OCTAVES = "PitchNormalizeOctavesSeries";
     static const QString SETTINGS_HISTOGRAM_THRESHOLD = "HistogramsThreshold";
     static const QString SETTINGS_HISTOGRAM_COMPONENTS_NUMBER = "HistogramComponentsNumber";
     static const QString SETTINGS_HISTOGRAM_F0MIN = "HistogramF0min";
+    static const QString SETTINGS_HISTOGRAM_F0POWK = "HistogramF0pow";
     static const QString SETTINGS_HISTOGRAM_F0MAX = "HistogramF0max";
     static const QString SETTINGS_HISTOGRAM_DF0 = "HistogramDF0";
 
@@ -249,7 +251,15 @@ namespace ApplicationConfig {
              {SETTINGS_VAL, "0;10;15;20;25;30;35;40;45;50;55;60;65;70;75;80;85;90;95;100;105;110;115;120;125;130;135;140;145;150;155;160;165;170;175;180;185;190;195;200;205;210;215;220;225;230;235;240;245;250;255;260;265;270;275;280;285;290;295;300;305;310;315;320;325;330;335;340;345;350;355;360;365;370;375;380;385;390;395;400;405;410;415;420;425;430;435;440;445;450;455;460;465;470;475;480;485;490;495;500"},
              {SETTINGS_TYPE, SETTINGS_TYPE_DOUBLE_LIST},
              {SETTINGS_VISIBLE, SETTINGS_FALSE},
-             {SETTINGS_EDITABLE, SETTINGS_FALSE}
+             {SETTINGS_EDITABLE, SETTINGS_TRUE}
+        }},
+        {SETTINGS_PITCH_OCTAVES_ENABLED,{
+             {SETTINGS_NAME, "Pitch Octaves Series Enabled"},
+             {SETTINGS_DESC, "Use manual Octaves Series"},
+             {SETTINGS_VAL, "false"},
+             {SETTINGS_TYPE, SETTINGS_TYPE_BOOL},
+             {SETTINGS_VISIBLE, SETTINGS_FALSE},
+             {SETTINGS_EDITABLE, SETTINGS_TRUE}
         }},
         {SETTINGS_HISTOGRAM_THRESHOLD,{
              {SETTINGS_NAME, "Histograms Threshold"},
@@ -290,6 +300,14 @@ namespace ApplicationConfig {
              {SETTINGS_TYPE, SETTINGS_TYPE_INTEGER},
              {SETTINGS_VISIBLE, SETTINGS_FALSE},
              {SETTINGS_EDITABLE, SETTINGS_TRUE}
+        }},
+        {SETTINGS_HISTOGRAM_F0POWK,{
+            {SETTINGS_NAME, "Histogram Segments Level"},
+            {SETTINGS_DESC, "Applied to Left and Right Segments"},
+            {SETTINGS_VAL, "2"},
+            {SETTINGS_TYPE, SETTINGS_TYPE_INTEGER},
+            {SETTINGS_VISIBLE, SETTINGS_FALSE},
+            {SETTINGS_EDITABLE, SETTINGS_TRUE}
         }}
     };
 
